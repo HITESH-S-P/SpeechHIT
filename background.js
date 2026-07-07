@@ -104,15 +104,4 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-// Automatically intercept PDF files and open them in SPeecHIT PDF Viewer
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.url) {
-    const url = changeInfo.url;
-    // Check if the URL points to an online PDF file and is not already our viewer (local file:/// URLs cannot be fetched directly by extensions due to CORS)
-    if (url.toLowerCase().includes(".pdf") && !url.toLowerCase().startsWith("file://") && !url.startsWith(chrome.runtime.getURL("pdf-viewer.html"))) {
-      chrome.tabs.update(tabId, {
-        url: chrome.runtime.getURL("pdf-viewer.html") + "#" + encodeURIComponent(url)
-      });
-    }
-  }
-});
+

@@ -347,12 +347,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const textContent = await page.getTextContent();
-      const textLayer = new pdfjsLib.TextLayer({
-        container: textLayerDiv,
-        textContentSource: textContent,
-        viewport: viewport
-      });
-      await textLayer.render();
+      if (pdfjsLib.TextLayer) {
+        const textLayer = new pdfjsLib.TextLayer({
+          container: textLayerDiv,
+          textContentSource: textContent,
+          viewport: viewport
+        });
+        await textLayer.render();
+      } else if (pdfjsLib.renderTextLayer) {
+        await pdfjsLib.renderTextLayer({
+          textContent: textContent,
+          container: textLayerDiv,
+          viewport: viewport,
+          textDivs: []
+        }).promise;
+      } else {
+        console.warn("SPeecHIT PDF Viewer: Text layer rendering is not supported by this PDF.js version.");
+      }
     } catch (e) {
       console.error("Text layer render failed for page", pageNum, e);
     }

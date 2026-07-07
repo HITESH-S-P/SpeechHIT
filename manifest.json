@@ -6,11 +6,7 @@
   "permissions": [
     "storage",
     "contextMenus",
-    "tts",
-    "tabs"
-  ],
-  "host_permissions": [
-    "<all_urls>"
+    "tts"
   ],
   "background": {
     "service_worker": "background.js"
