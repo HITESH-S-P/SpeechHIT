@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPeecHIT Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+          <div class="bar bar-4"></div>
+        </div>
+        <div class="brand">
+          <span class="brand-main">SPeecHIT</span>
+          <span class="brand-tag">Instant Reader</span>
+        </div>
+      </div>
+      <div class="version">v1.0</div>
+    </header>
+
+    <!-- Controls -->
+    <main class="settings-main">
+      
+      <!-- Instant Read Toggle -->
+      <div class="settings-group">
+        <div class="label-desc">
+          <label for="toggle-instant" class="group-label">Instant Read on Selection</label>
+          <span class="group-desc">Automatically start reading when you highlight text.</span>
+        </div>
+        <div class="switch-wrapper">
+          <input type="checkbox" id="toggle-instant" class="toggle-checkbox" />
+          <label for="toggle-instant" class="toggle-switch"></label>
+        </div>
+      </div>
+
+      <!-- Floating Controller Toggle -->
+      <div class="settings-group">
+        <div class="label-desc">
+          <label for="toggle-floating" class="group-label">Show Floating Controller</label>
+          <span class="group-desc">Display playback and speed bar near selection.</span>
+        </div>
+        <div class="switch-wrapper">
+          <input type="checkbox" id="toggle-floating" class="toggle-checkbox" />
+          <label for="toggle-floating" class="toggle-switch"></label>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <hr class="divider">
+
+      <!-- Speed Control -->
+      <div class="control-group">
+        <div class="control-header">
+          <span class="group-label">Reading Speed (Pace)</span>
+          <span id="speed-value" class="badge">1.0x</span>
+        </div>
+        <div class="range-slider-wrapper">
+          <input type="range" id="speed-slider" min="0.5" max="3" step="0.1" value="1.0" class="styled-range">
+          <div class="range-ticks">
+            <span>0.5x</span>
+            <span>1.0x</span>
+            <span>2.0x</span>
+            <span>3.0x</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voice Selection -->
+      <div class="control-group">
+        <div class="control-header">
+          <span class="group-label">Choose Voice</span>
+        </div>
+        <div class="select-wrapper">
+          <select id="voice-select" class="styled-select">
+            <option value="">System Default Voice</option>
+          </select>
+          <div class="select-arrow"></div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <button id="btn-pdf-reader" class="btn-primary">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Open SPeecHIT PDF Reader</span>
+      </button>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>To read local PDFs, check <strong>Allow access to file URLs</strong> in extension settings.</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPeecHIT PDF Reader Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pdf-viewer.css">
+  <!-- Load Local PDF.js files -->
+  <script src="lib/pdf.min.js"></script>
+</head>
+<body>
+  <div class="workspace-container">
+    
+    <!-- Sticky Header Controls -->
+    <header class="workspace-header">
+      <div class="header-left">
+        <a href="popup.html" class="logo-link">
+          <div class="logo-icon">
+            <div class="bar bar-1"></div>
+            <div class="bar bar-2"></div>
+            <div class="bar bar-3"></div>
+            <div class="bar bar-4"></div>
+          </div>
+          <span class="brand-text">SPeecHIT PDF</span>
+        </a>
+        <div class="file-info">
+          <span class="file-status">No Document Loaded</span>
+          <span id="active-filename" class="filename-text" style="display: none;"></span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Close/Open file Button -->
+        <button id="btn-close-pdf" class="header-btn" style="display: none;" title="Close Document">Close PDF</button>
+        <button id="btn-browse-header" class="header-btn primary-header-btn">Open File</button>
+        
+        <div class="divider-v"></div>
+
+        <!-- Voice Selector for Workspace -->
+        <div class="voice-dropdown-wrapper">
+          <select id="workspace-voice-select" class="header-select">
+            <option value="">System Default Voice</option>
+          </select>
+        </div>
+
+        <!-- Speed control badge buttons -->
+        <div class="speed-capsule">
+          <button id="btn-speed-down" class="speed-adjust" title="Slower">-</button>
+          <span id="workspace-speed-display" class="speed-display">1.0x</span>
+          <button id="btn-speed-up" class="speed-adjust" title="Faster">+</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="workspace-main">
+      
+      <!-- Drag and Drop Dropzone -->
+      <div id="pdf-dropzone" class="dropzone-area">
+        <div class="dropzone-content">
+          <div class="icon-illustration">
+            <svg class="cloud-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 16V8M12 8L9 11M12 8L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="dropzone-title">Load your PDF document</h2>
+          <p class="dropzone-subtitle">Drag and drop a PDF file here, or click to browse files from your computer</p>
+          <input type="file" id="pdf-file-input" accept="application/pdf" style="display: none;" />
+          <button id="btn-browse-file" class="btn-workspace-primary">Browse Files</button>
+        </div>
+      </div>
+
+      <!-- PDF Page Render Workspace -->
+      <div id="pdf-viewer-container" class="pdf-viewer-container" style="display: none;">
+        <!-- Dynamically rendered pages go here -->
+      </div>
+
+      <!-- Loading Overlay -->
+      <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="spinner-box">
+          <div class="spinner"></div>
+          <span class="loading-text">Rendering PDF pages...</span>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+  <script src="pdf-viewer.js"></script>
+</body>
+</html>
