@@ -1,65 +1,77 @@
-# SPeecHIT - Selection Text-to-Speech Browser Extension
+# 🎙️ SPeecHIT - Selection Text-to-Speech Browser Extension
 
-SPeecHIT is a modern, high-performance Chrome and Microsoft Edge compatible browser extension that instantly reads selected text aloud the moment it is highlighted. It features real-time speed adjustments, custom voice selection, a sleek floating control capsule, and a fully custom PDF reading workspace.
-
----
-
-## Features
-
-1. **Instant Selection Read:** Highlight any text on a webpage, and SPeecHIT will immediately speak it using the browser's speech synthesis engine.
-2. **Sleek Floating Player:** An isolated glassmorphic overlay appears near your selection with play, pause, stop, speed cycling buttons, and an animated audio wave visualizer.
-3. **Pace Control:** Speed can be adjusted on-the-fly from the floating widget or settings popup in steps from `0.5x` up to `3.0x`.
-4. **Voice Customization:** Pick any browser-native voice (including Edge's premium neural voices if running in Microsoft Edge) from a sleek search dropdown.
-5. **SPeecHIT PDF Reader:** An integrated document reader page powered by PDF.js. Drag and drop any PDF to render it with a standard HTML text-selection overlay.
-6. **Cross-Tab Control:** Speech is coordinated globally so that playing audio in one tab automatically halts reading in other tabs.
+SPeecHIT is a modern, high-performance, glassmorphic browser extension compatible with Google Chrome, Microsoft Edge, Brave, and other Chromium-based browsers. It instantly reads selected text aloud the moment it is highlighted, featuring real-time speed adjustments, custom voice selection, a sleek floating control capsule, and a fully custom offline PDF reading workspace.
 
 ---
 
-## Installation & Setup
+## 🌟 Key Features
 
-Because browser extensions cannot load remote CDN scripts (under Manifest V3 security rules) and must contain local icon files, you will need to run two quick PowerShell setup scripts included in the root directory.
-
-### Step 1: Initialize Files (Download PDF.js & Generate Icons)
-
-Open a **PowerShell** window in the project directory (`d:\websites\aiAgency\AI-customer-support`) and execute the following two commands:
-
-1. **Download PDF.js files locally:**
-   ```powershell
-   .\download_pdfjs.ps1
-   ```
-   *This downloads the standard pre-compiled `pdf.min.js` and `pdf.worker.min.js` into the `speechit/lib` directory.*
-
-2. **Generate PNG icons:**
-   ```powershell
-   .\generate_icons.ps1
-   ```
-   *This generates clean logo icons (`icon16.png`, `icon48.png`, `icon128.png`) in the `speechit/icons` directory using native Windows graphics components.*
+*   **Instant Read on Selection:** Highlight any text on a webpage and SPeecHIT will immediately read it using the browser's speech synthesis engine.
+*   **Sleek Floating Player:** An isolated glassmorphic overlay appears near your selection with play/pause, stop, speed cycling controls, and an animated audio wave visualizer.
+*   **Pace Control (Speed):** Adjust speech rate on-the-fly from `0.5x` up to `3.0x` via the floating widget, settings popup, or the PDF workspace.
+*   **Voice Customization:** Pick any browser-native voice (including Microsoft Edge's premium neural voices when running in Edge) via a sleek search dropdown.
+*   **Integrated PDF Workspace:** A feature-rich local document reader powered by PDF.js. Simply drag and drop any PDF to render it with standard text-selection overlays for instant TTS reading.
+*   **Cross-Tab Speech Coordination:** Automatically halts reading in other tabs when audio starts in a new tab to avoid overlapping speech.
 
 ---
 
-### Step 2: Load SPeecHIT in your Browser
+## 📦 Installation
 
-1. Open **Google Chrome** or **Microsoft Edge**.
-2. Navigate to the extension management page:
-   - Chrome: `chrome://extensions`
-   - Edge: `edge://extensions`
-3. Toggle the **Developer mode** switch (usually found in the top-right corner or left sidebar).
-4. Click **Load unpacked** (top-left).
-5. Select the **`speechit`** folder inside the workspace.
-6. SPeecHIT is now installed! Pin the extension to your toolbar for easy access.
+Since all dependencies (such as `PDF.js` libraries in `lib/`) and default logos/icons are already pre-packaged in the extension directory, installation takes less than a minute!
+
+### Step 1: Load SPeecHIT in your Browser
+
+1.  Open **Google Chrome**, **Microsoft Edge**, or any other Chromium browser.
+2.  Navigate to the extensions manager page:
+    *   **Chrome:** `chrome://extensions`
+    *   **Edge:** `edge://extensions`
+3.  Turn **ON** the **Developer mode** toggle (typically in the top-right corner or side menu).
+4.  Click the **Load unpacked** button (usually in the top-left).
+5.  Select the **`speechit`** folder inside this repository.
+6.  *SPeecHIT is now installed!* Pin it to your browser toolbar for quick access.
+
+### Step 2: Configure Local PDF Access (Recommended)
+
+To read local PDF files directly from your computer:
+1.  On the extension management page, click **Details** on the **SPeecHIT** card.
+2.  Scroll down to find **Allow access to file URLs** and toggle it **ON**.
 
 ---
 
-## PDF Document Setup (Highly Recommended)
+## 🚀 How to Use
 
-### Read Local PDFs (`file://` URLs)
-To read local PDF files from your computer:
-1. Go to `chrome://extensions` (or `edge://extensions`).
-2. Click **Details** on the **SPeecHIT** extension card.
-3. Scroll down and turn ON **Allow access to file URLs**.
+### 1. Web Page Reading
+*   Select text on any webpage.
+*   If **Instant Read on Selection** is enabled in settings, SPeecHIT will start reading immediately.
+*   A sleek floating control panel will appear near the selection. You can use it to:
+    *   **Play / Pause** the speech.
+    *   **Stop** the speech.
+    *   **Cycle Speed** (`1.0x` ➔ `1.2x` ➔ `1.5x` ➔ `2.0x` ➔ `0.8x`).
 
-### How to use the PDF Reader Workspace
-1. Click the SPeecHIT extension icon in the toolbar to open the settings popup.
-2. Click **Open SPeecHIT PDF Reader**.
-3. Drag and drop any PDF file into the dropzone or click **Browse Files** to open a file.
-4. Highlight text inside the PDF page to hear it spoken instantly!
+### 2. Context Menu Reading
+*   Right-click any selected text on a webpage.
+*   Select **Read with SPeecHIT** from the context menu to read the text.
+
+### 3. Settings Popup
+*   Click the extension icon in the browser toolbar to:
+    *   Toggle **Instant Read on Selection** on or off.
+    *   Toggle the **Floating Controller** visibility.
+    *   Fine-tune **Reading Speed** with a precision slider (`0.5x` - `3.0x`).
+    *   Choose a preferred TTS **Voice** from the list of available system voices.
+
+### 4. PDF Reader Workspace
+1.  Open the settings popup and click **Open SPeecHIT PDF Reader** (or navigate to options).
+2.  Drag and drop any PDF file into the workspace, or click **Browse Files** to open a file.
+3.  Select any text within the PDF document to read it aloud instantly with the same controls.
+
+---
+
+## 🛠️ File Structure
+
+*   [`manifest.json`](file:///d:/websites/SPeecHIT/speechit/manifest.json) - Extension configuration and metadata.
+*   [`background.js`](file:///d:/websites/SPeecHIT/speechit/background.js) - Service worker handling initialization, context menus, and cross-tab stop communication.
+*   [`content.js`](file:///d:/websites/SPeecHIT/speechit/content.js) & [`content.css`](file:///d:/websites/SPeecHIT/speechit/content.css) - Script and styles injected into web pages to detect selections and display the floating player.
+*   [`popup.html`](file:///d:/websites/SPeecHIT/speechit/popup.html), [`popup.css`](file:///d:/websites/SPeecHIT/speechit/popup.css), & [`popup.js`](file:///d:/websites/SPeecHIT/speechit/popup.js) - The toolbar options/settings control UI.
+*   [`pdf-viewer.html`](file:///d:/websites/SPeecHIT/speechit/pdf-viewer.html), [`pdf-viewer.css`](file:///d:/websites/SPeecHIT/speechit/pdf-viewer.css), & [`pdf-viewer.js`](file:///d:/websites/SPeecHIT/speechit/pdf-viewer.js) - The standalone PDF reader workspace.
+*   [`lib/`](file:///d:/websites/SPeecHIT/speechit/lib) - Houses local copy of `pdf.min.js` and `pdf.worker.min.js` to ensure compliance with strict Manifest V3 remote code execution security guidelines.
+*   [`icons/`](file:///d:/websites/SPeecHIT/speechit/icons) - Directory containing the application logos.
